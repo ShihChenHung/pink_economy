@@ -152,3 +152,7 @@ p {
     background-image: url('/assets/title_bg_2.jpg');
     background-size: cover;
 }
+
+video{
+    width: 100vw;
+}
