@@ -149,7 +149,7 @@ p {
     width: 100vw;
     height: 90vh;
     position: relative;
-    background-image: url('/assets/title_bg_2.jpg');
+    background-image: url('https://shihchenhung.github.io/web/assets/title_bg_2.jpg');
     background-size: cover;
 }
 
