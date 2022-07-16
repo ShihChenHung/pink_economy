@@ -24,14 +24,8 @@ h1 {
     text-shadow: black 0.1em 0.1em 0.2em;
     font-size: 4em;
     font-weight: 600;
-    line-height: 2em;
-    justify-content: center;
-    align-items: center;
-    display: flex;
     text-align: center;
-    z-index: 1;
-    position: relative;
-    padding-top: 10vh;
+    padding: 25vh 0 2vh 0;
     margin: 0;
 }
 
@@ -41,13 +35,7 @@ h2{
     text-shadow: black 0.1em 0.1em 0.2em;
     font-size: 1.5em;
     font-weight: 600;
-    justify-content: center;
-    align-items: center;
-    display: flex;
     text-align: center;
-    z-index: 1;
-    position: relative;
-    margin: 0;
 }
 
 .summary {
@@ -55,10 +43,11 @@ h2{
     text-shadow: black 0.1em 0.1em 0.2em;
     line-height: 2em;
     color: aliceblue;
-    width: 40%;
+    width: 40vw;
     margin: auto;
-    z-index: 1;
-    position: relative;
+    align-items: center;
+    display: flex;
+    /* height: 50vh; */
 }
 
 /*索引標籤*/
@@ -123,6 +112,13 @@ h3 {
 
 p {
     margin-top: 2em;
+    font-size: 1.2em;
+    line-height: 1.8em;
+    color: aliceblue;
+    width: 40%;
+    margin: auto;
+    padding: 1em;
+
 }
 
 #ch1_history,
@@ -130,19 +126,6 @@ p {
 #ch3_now,
 #ch4_future {
     padding-top: 4.2em;
-}
-
-.article {
-    font-size: 1.2em;
-    line-height: 1.8em;
-    color: aliceblue;
-    width: 40%;
-    margin: auto;
-    z-index: 1;
-    position: relative;
-    height: auto;
-    padding: 0;
-
 }
 
 .bgimage {
