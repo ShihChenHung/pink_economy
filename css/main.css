@@ -55,14 +55,16 @@ h2{
 #nav {
     display: inline-block;
     position: sticky;
-    top: 0em;
-    width: 100vw;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+    width: 100%;
     background-color: rgba(245, 245, 245);
     padding: 1em;
     text-align: left;
     z-index: 9;
     margin: 0;
-
 }
 
 #nav li {

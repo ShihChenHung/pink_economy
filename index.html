@@ -229,42 +229,44 @@
 </body>
 <script>
     const videos = document.querySelectorAll("video")
+    const nav = document.getElementById("nav")
 
-    const videoPlayTimeMap = new Map([
-        [videos[0], 0], // the first video's play time
-        [videos[1], 1],
-        [videos[2], 2],
-        [videos[3], 3]
+    const videoPlayStateMap = new Map([
+        [videos[0], {disabled:false, playTime:0}],
+        [videos[1], {disabled:false, playTime:0}],
+        [videos[2], {disabled:false, playTime:0}],
+        [videos[3], {disabled:false, playTime:0}]
     ])
-    // console.log("videoPlayTimeMap", videoPlayTimeMap)
-    
-    
-    const onIntersection = entries=>{
-        for (const entry of entries) {
-            const node = entry.target
-            if(!node || node.nodeName !== 'VIDEO'){
-                return
+
+    window.onscroll = ()=>{
+        for (const video of videos) {
+            const fullyIntersected = (window.innerHeight - video.getBoundingClientRect().y) > (video.clientHeight-nav.clientHeight)
+            const stateVideo = videoPlayStateMap.get(video)
+
+            console.log({video:video.src,stateVideo,fullyIntersected})
+            
+            if(stateVideo.disabled){
+                if(!fullyIntersected){
+                    stateVideo.disabled = false
+                }
+                continue
             }
-            // console.log("[node]",node)
-            const statTime = videoPlayTimeMap.get(node)
-            // console.log("[statTime]",statTime)
-            node.currentTime = statTime
-            node.play()
+            
+            if(fullyIntersected){
+                stateVideo.disabled = true
+                document.body.style.overflowY = "hidden"
+                video.currentTime = stateVideo.playTime
+                video.play()
+            }
         }
     }
 
-    /** @see https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API **/
-    const observer = new IntersectionObserver(onIntersection, {
-        root: null,
-        threshold: .5
-    })
-
-
     for (const video of videos) {
-        observer.observe(video)
+        video.addEventListener("ended",()=>{
+            document.body.style.overflowY = "auto"           
+        })
     }
 
-    // observer.unobserve(entry.target)
 </script>
 </html>
 
