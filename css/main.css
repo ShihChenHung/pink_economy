@@ -1,11 +1,12 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: rgb(44, 50, 100);
+    background-color: #181E24;
     scroll-behavior: smooth;
     font-family: 'Noto Sans TC', sans-serif;
     font-weight: 300;
-    overflow-x:hidden;
+    overflow-x: hidden;
+    color:aliceblue;
 }
 
 #footer {
@@ -30,7 +31,7 @@ h1 {
     margin: 0;
 }
 
-h2{
+h2 {
     font-family: 'Noto Serif TC', serif;
     color: white;
     text-shadow: black 0.1em 0.1em 0.2em;
@@ -39,16 +40,14 @@ h2{
     text-align: center;
 }
 
-.summary {
-    font-size: 1.2em;
+h4 {
+    font-family: 'Noto Serif TC', serif;
+    color: #E767A2;
     text-shadow: black 0.1em 0.1em 0.2em;
-    line-height: 2em;
-    color: aliceblue;
-    width: 40vw;
-    margin: auto;
-    align-items: center;
-    display: flex;
-    /* height: 50vh; */
+    font-size: 1.5em;
+    font-weight: 600;
+
+    padding: 2vh 0 0 30vw;
 }
 
 /*索引標籤*/
@@ -117,11 +116,19 @@ p {
     margin-top: 2em;
     font-size: 1.2em;
     line-height: 1.8em;
-    color: aliceblue;
     width: 40%;
     margin: auto;
-    padding: 1em;
+    padding: 0.5em;
 
+
+}
+
+
+.intro {
+    text-align: center;
+    color: #74A5D8;
+    font-style: italic;
+    padding: 3em;
 }
 
 #ch1_history,
@@ -139,6 +146,6 @@ p {
     background-size: cover;
 }
 
-video{
+video {
     width: 100vw;
 }
