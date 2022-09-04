@@ -40,15 +40,7 @@ h2 {
     text-align: center;
 }
 
-h4 {
-    font-family: 'Noto Serif TC', serif;
-    color: #E767A2;
-    text-shadow: black 0.1em 0.1em 0.2em;
-    font-size: 1.5em;
-    font-weight: 600;
 
-    padding: 2vh 0 0 30vw;
-}
 
 /*索引標籤*/
 #nav {
@@ -86,7 +78,7 @@ a:visited {
 }
 
 a:hover {
-    color: #f170dc;
+    color: #E767A2;
     text-decoration: none;
 }
 
@@ -111,26 +103,15 @@ h3 {
 
 /*文章*/
 
-
-p {
-    margin-top: 2em;
-    font-size: 1.2em;
-    line-height: 1.8em;
-    width: 40%;
-    margin: auto;
-    padding: 0.5em;
-
-
+.bgimage {
+    width: 100%;
+    height: 90vh;
+    position: relative;
+    background-image: url('https://shihchenhung.github.io/web/assets/0-0.png');
+    background-size: cover;
 }
 
-
-.intro {
-    text-align: center;
-    color: #74A5D8;
-    font-style: italic;
-    padding: 3em;
-}
-
+#summary,
 #ch1_history,
 #ch2_old,
 #ch3_now,
@@ -138,12 +119,51 @@ p {
     padding-top: 4.2em;
 }
 
-.bgimage {
-    width: 100%;
-    height: 90vh;
-    position: relative;
-    background-image: url('https://shihchenhung.github.io/web/assets/title_bg_2.jpg');
-    background-size: cover;
+h4 {
+    font-family: 'Noto Serif TC', serif;
+    color: #E767A2;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    font-size: 1.5em;
+    font-weight: 600;
+    margin: auto;
+    width: 40%;
+    margin: 2em auto 0 auto;
+}
+
+p {
+    margin-top: 2em;
+    font-size: 1.2em;
+    line-height: 1.8em;
+    padding: 0.5em;
+    margin: auto;
+    width: 40%;
+}
+
+.intro {
+    color: #74A5D8;
+    font-style: italic;
+    padding: 3em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.insert{
+    width: 60vw;
+
+    display: block;
+    margin: 2em auto 0 auto;
+    
+}
+
+figcaption {
+    width: 60vw;
+    height: auto;
+    display: block;
+    margin: 0 auto 2em auto;
+    text-align: center;
+    color:#999999;
 }
 
 video {
