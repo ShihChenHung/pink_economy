@@ -7,6 +7,7 @@
     <!--CSS -->
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/css/phone.css" rel="stylesheet" type="text/css" media="only screen and (min-width: 0px) and (max-width: 480px)" />
     <!--JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!--google思源體-->
@@ -904,7 +905,7 @@
     <!--註腳-->
     <div id="footer">2022　臺灣大學新聞研究所</div>
 </body>
-<script>
+<!-- <script>
     const videos = document.querySelectorAll("video")
     const nav = document.getElementById("nav")
 
@@ -971,6 +972,45 @@
         }
     })
 
-</script>
+</script> -->
+<script>
+        const videos = document.querySelectorAll("video")
+    const nav = document.getElementById("nav")
 
+    const videoPlayStateMap = new Map([
+        [videos[0], {disabled:false, playTime:0}],
+        [videos[1], {disabled:false, playTime:0}],
+        [videos[2], {disabled:false, playTime:0}],
+        [videos[3], {disabled:false, playTime:0}]
+    ])
+
+    window.onscroll = ()=>{
+        for (const video of videos) {
+            const fullyIntersected = (window.innerHeight - video.getBoundingClientRect().y) > (video.clientHeight-nav.clientHeight)
+            const stateVideo = videoPlayStateMap.get(video)
+
+            console.log({video:video.src,stateVideo,fullyIntersected})
+            
+            if(stateVideo.disabled){
+                if(!fullyIntersected){
+                    stateVideo.disabled = false
+                }
+                continue
+            }
+            
+            if(fullyIntersected){
+                stateVideo.disabled = true
+                document.body.style.overflowY = "hidden"
+                video.currentTime = stateVideo.playTime
+                video.play()
+            }
+        }
+    }
+
+    for (const video of videos) {
+        video.addEventListener("ended",()=>{
+            document.body.style.overflowY = "auto"           
+        })
+    }
+</script>
 </html>
