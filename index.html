@@ -949,8 +949,11 @@
             if (fullyIntersected) {
                 stateVideo.disabled = true
                 document.body.style.overflowY = "hidden"
-                video.currentTime = stateVideo.playTime
-                video.play()
+                setTimeout(()=>{
+                    video.scrollIntoView({block:"start"})
+                    video.currentTime = stateVideo.playTime
+                    video.play()    
+                },500)
             }
         }
     }
@@ -960,6 +963,14 @@
             document.body.style.overflowY = "auto"
         })
     }
+
+    document.getElementById("nav").addEventListener("click", (e)=>{
+        document.body.style.overflowY = "auto"
+        for (const [video,state] of videoPlayStateMap) {
+            state.disabled = false
+        }
+    })
+
 </script>
 
 </html>
