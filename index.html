@@ -21,7 +21,7 @@
 <body>
 
     <!--AOS JS 滾動動畫-->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@3.0.0-beta.6/dist/aos.min.js"></script>
     <script>
         AOS.init();
     </script>
@@ -927,49 +927,76 @@
         }]
     ])
 
-    window.onscroll = () => {
-        for (const video of videos) {
-            const fullyIntersected = (window.innerHeight - video.getBoundingClientRect().y) > (video.clientHeight -
-                nav.clientHeight)
-            const stateVideo = videoPlayStateMap.get(video)
+    const isInView = dom=>{
+        const bounding = dom.getBoundingClientRect()
+        return bounding.y<=document.documentElement.clientHeight && -bounding.y<=bounding.height
+    }
 
-            console.log({
-                video: video.src,
-                stateVideo,
-                fullyIntersected
-            })
+    let playing = false
 
-            if (stateVideo.disabled) {
-                if (!fullyIntersected) {
-                    stateVideo.disabled = false
+    // await aos animation in and then start the scroll events
+    document.addEventListener('aos:in', ({ detail }) => {
+        
+        const nodes = detail.querySelectorAll("video")
+        if( nodes.legnth === 0)  {
+            return 
+        }
+        window.onscroll = () => {
+            for (const video of nodes) {
+                const stateVideo = videoPlayStateMap.get(video)
+                const fullyIntersected = (window.innerHeight - video.getBoundingClientRect().y) > (video.clientHeight - nav.clientHeight)
+                if (stateVideo.disabled) { // it is in the sake of initializing which also make sure the page could be scrolled after played the video
+                    if (!fullyIntersected) {
+                        stateVideo.disabled = false
+                    }
+                    continue
                 }
-                continue
-            }
-
-            if (fullyIntersected) {
-                stateVideo.disabled = true
-                document.body.style.overflowY = "hidden"
-                setTimeout(()=>{
-                    video.scrollIntoView({block:"start"})
-                    video.currentTime = stateVideo.playTime
-                    video.play()    
-                },500)
+                if (fullyIntersected) {
+                    stateVideo.disabled = true
+                    document.body.style.overflowY = "hidden"
+                    setTimeout(()=>{
+                        video.scrollIntoView({block:"center",behavior:"smooth"})
+                        video.currentTime = stateVideo.playTime
+                        video.play()  
+                        playing = true
+                    },500)
+                }
             }
         }
-    }
+    })
+
+    // document.addEventListener('aos:out', ({ detail }) => {})
 
     for (const video of videos) {
         video.addEventListener("ended", () => {
             document.body.style.overflowY = "auto"
+            playing = false
         })
     }
 
     document.getElementById("nav").addEventListener("click", (e)=>{
-        document.body.style.overflowY = "auto"
-        for (const [video,state] of videoPlayStateMap) {
-            state.disabled = false
+        if(playing){
+            e.preventDefault()
+            return
         }
-    })
+        // in the process of navigating to hyperling mark , the aos event will be trigger 
+        // set the disabled in video dom map to stop trigger playing video 
+        for (const [video, stateVideo] of videoPlayStateMap) { 
+            stateVideo.disabled = true
+        }
+        setTimeout(()=>{ // await go to the hyperlink mark ; if there is any video in the view paying it
+            for (const [video, stateVideo] of videoPlayStateMap) {
+                if(!isInView(video)){
+                  continue
+                }
+                document.body.style.overflowY = "hidden"
+                video.scrollIntoView({block:"center",behavior:"smooth"})
+                video.currentTime = stateVideo.playTime
+                video.play()  
+                playing = true
+            }
+        },250)
+    })   
 
 </script>
 
