@@ -78,7 +78,7 @@ a:visited {
 a:hover {
     color: #E767A2;
     text-decoration: none;
-    
+
 }
 
 
@@ -145,6 +145,11 @@ figcaption {
     color: #999999;
 }
 
+video {
+    width: 100vw;
+}
+
+
 @media only screen and (min-width: 0px) and (max-width: 768px) {
     h1 {
         font-size: 3em;
@@ -190,10 +195,6 @@ figcaption {
         width: 70vw;
         font-size: 0.7em;
         text-align: left;
-    }
-
-    video {
-        display: none;
     }
 
     .desktop {
@@ -249,11 +250,6 @@ figcaption {
         width: 60vw;
         font-size: 1em;
     }
-
-    video {
-        width: 100vw;
-    }
-
 
     .mobile {
         display: none;
