@@ -63,7 +63,7 @@ h2 {
     text-shadow: black 1.5px 1.5px 2px;
     transition: all .1s ease-in-out;
     display: inline;
-    
+
 }
 
 
@@ -172,11 +172,15 @@ video {
     }
 
     h4 {
-        width: 100vw;
+        width: 90vw;
         font-size: 1.1em;
-        margin: 1em 2em 1em 0em;
         line-height: 2em;
+        word-break: keep-all;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
         text-align: center;
+
     }
 
     p {
@@ -186,6 +190,7 @@ video {
 
     .intro {
         font-size: 0.9em;
+        word-break: keep-all;
     }
 
     .insert {
@@ -197,6 +202,11 @@ video {
         width: 70vw;
         font-size: 0.7em;
         text-align: left;
+        word-break: keep-all
+    }
+
+    video {
+        display: none;
     }
 }
 
@@ -246,4 +256,9 @@ video {
         width: 60vw;
         font-size: 1em;
     }
+
+    .phone {
+        display: none;
+    }
+
 }
