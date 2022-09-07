@@ -190,7 +190,7 @@ figcaption {
     }
 
     video {
-        width: 100vw;
+        display: none;
     }
 
     .desktop {
