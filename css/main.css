@@ -112,8 +112,7 @@ h4 {
     color: #E767A2;
     text-shadow: black 0.1em 0.1em 0.2em;
     font-weight: 600;
-    margin: auto;
-    margin: 2em auto 0 auto;
+
 }
 
 p {
@@ -165,8 +164,9 @@ background-position: left bottom;
     }
 
     h4 {
-        width: 70vw;
-        font-size: 1.1em;
+        width: 60vw;
+        font-size: 1em;
+        margin: 1em auto 0 4em;
     }
 
     p {
@@ -184,8 +184,8 @@ background-position: left bottom;
     }
 
     figcaption {
-        width: 80vw;
-        font-size: 0.1em;
+        width: 60vw;
+        font-size: 0.5em;
     }
 
     video {
@@ -216,6 +216,7 @@ h3{
 h4 {
     width: 40vw;
     font-size: 1.5em;
+    margin: 2em auto 0 auto;
 }
 
 
