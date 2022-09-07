@@ -60,7 +60,7 @@ h2 {
     font-size: 1em;
     font-weight: 500;
     margin: 0.8em;
-    text-shadow: black 0.1em 0.1em 0.2em;
+    text-shadow: black 1.5px 1.5px 2px;
     transition: all .1s ease-in-out;
     display: inline;
 }
@@ -78,6 +78,7 @@ a:visited {
 a:hover {
     color: #E767A2;
     text-decoration: none;
+    
 }
 
 
@@ -205,7 +206,7 @@ figcaption {
 @media only screen and (min-width: 769px) {
     h1 {
         font-size: 4em;
-        padding: 25vh 0 2vh 0;
+        padding: 34vh 0 2vh 0;
     }
 
     h3 {
