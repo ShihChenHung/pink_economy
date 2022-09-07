@@ -926,6 +926,7 @@
     <div id="footer">2022　臺灣大學新聞研究所</div>
 </body>
 <script>
+    if ( $(window).width() > 770){
     const videos = document.querySelectorAll("video")
     const nav = document.getElementById("nav")
 
@@ -1029,6 +1030,8 @@
             }
         }, 250)
     })
+}
+else {}
 </script>
 
 </html>
