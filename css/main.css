@@ -63,6 +63,7 @@ h2 {
     text-shadow: black 1.5px 1.5px 2px;
     transition: all .1s ease-in-out;
     display: inline;
+    
 }
 
 
@@ -171,10 +172,11 @@ video {
     }
 
     h4 {
-        width: 60vw;
+        width: 100vw;
         font-size: 1.1em;
-        margin: 1em auto 0 4em;
+        margin: 1em 2em 1em 0em;
         line-height: 2em;
+        text-align: center;
     }
 
     p {
@@ -196,12 +198,6 @@ video {
         font-size: 0.7em;
         text-align: left;
     }
-
-    .desktop {
-        display: none;
-    }
-
-
 }
 
 @media only screen and (min-width: 769px) {
@@ -249,9 +245,5 @@ video {
     figcaption {
         width: 60vw;
         font-size: 1em;
-    }
-
-    .mobile {
-        display: none;
     }
 }
