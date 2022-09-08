@@ -190,7 +190,7 @@ video {
 
     .intro {
         font-size: 0.9em;
-        word-break: keep-all;
+
     }
 
     .insert {
@@ -202,7 +202,6 @@ video {
         width: 70vw;
         font-size: 0.7em;
         text-align: left;
-        word-break: keep-all
     }
 
     video {
