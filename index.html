@@ -1048,17 +1048,14 @@
             window.onscroll = () => {
                 for (const video of nodes) {
                     const stateVideo = videoPlayStateMap.get(video)
-                    const fullyIntersected = (window.innerHeight - video.getBoundingClientRect().y) > (video
-                        .clientHeight - nav.clientHeight)
-                    if (stateVideo
-                        .disabled
-                        ) { // it is in the sake of initializing which also make sure the page could be scrolled after played the video
-                        if (!fullyIntersected) {
+                    const intersected = window.screenY >= video.getBoundingClientRect().y
+                    if (stateVideo.disabled) { // it is in the sake of initializing which also make sure the page could be scrolled after played the video
+                        if (!intersected) {
                             stateVideo.disabled = false
                         }
                         continue
                     }
-                    if (fullyIntersected) {
+                    if (intersected) {
                         stateVideo.disabled = true
                         document.body.style.overflowY = "hidden"
                         setTimeout(() => {
@@ -1069,7 +1066,7 @@
                             video.currentTime = stateVideo.playTime
                             video.play()
                             playing = true
-                        }, 0)
+                        }, 500)
                     }
                 }
             }
