@@ -245,7 +245,7 @@
                         allowfullscreen
                         style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe>
                 </div>
-                <video muted src="./assets/2-3.mp4"> </video>
+                <video muted controls src="./assets/2-3.mp4"> </video>
                 <p>
                     「我帶媽媽上街，好多朋友還要戴墨鏡，他們走在人行道、騎樓下，不敢走進人群。」負責營運ANIKI健身房的Clark回憶起第一屆同志大遊行的情景。阿嬤當時也是戴墨鏡的一員，「那時候才幾百個人，大家都怕別人知道。」
                 </p>
@@ -385,7 +385,7 @@
                             height="100%" allowfullscreen
                             style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe>
                     </div>
-                    <video muted src="./assets/3-1.mp4"> </video>
+                    <video muted controls src="./assets/3-1.mp4"> </video>
                 </div>
                 <p>
                     從捷運西門站的1號出口處離開，一到地面就可以馬上從熙來攘往的人群中，看到矗立在對街的復古洋樓。在充滿著日式風情的八角紅磚洋樓旁，架著燈光效果華麗的音樂祭舞台，音樂聲流淌在微微悶熱的空氣中。
@@ -467,7 +467,7 @@
                         allowfullscreen
                         style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe>
                 </div>
-                <video muted src="./assets/3-3.mp4"> </video>
+                <video muted controls src="./assets/3-3.mp4"> </video>
             </div>
             <div data-aos="fade-up" data-aos-duration="2000">
                 <p>
@@ -481,7 +481,7 @@
                         allowfullscreen
                         style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe>
                 </div>
-                <video muted src="./assets/3-4.mp4"> </video>
+                <video muted controls src="./assets/3-4.mp4"> </video>
 
             </div>
             <div data-aos="fade-up" data-aos-duration="2000">
@@ -1003,7 +1003,7 @@
 
 
     <!--註腳-->
-    <div id="footer">2022　臺灣大學新聞研究所</div>
+    <div id="footer">©2022　洪詩宸／國立臺灣大學新聞研究所 多媒體深度報導碩士論文</div>
 </body>
 <script>
     if (screen && screen.width > 769) {
@@ -1048,17 +1048,14 @@
             window.onscroll = () => {
                 for (const video of nodes) {
                     const stateVideo = videoPlayStateMap.get(video)
-                    const fullyIntersected = (window.innerHeight - video.getBoundingClientRect().y) > (video
-                        .clientHeight - nav.clientHeight)
-                    if (stateVideo
-                        .disabled
-                        ) { // it is in the sake of initializing which also make sure the page could be scrolled after played the video
-                        if (!fullyIntersected) {
+                    const intersected = window.screenY >= video.getBoundingClientRect().y
+                    if (stateVideo.disabled) { // it is in the sake of initializing which also make sure the page could be scrolled after played the video
+                        if (!intersected) {
                             stateVideo.disabled = false
                         }
                         continue
                     }
-                    if (fullyIntersected) {
+                    if (intersected) {
                         stateVideo.disabled = true
                         document.body.style.overflowY = "hidden"
                         setTimeout(() => {
@@ -1069,7 +1066,7 @@
                             video.currentTime = stateVideo.playTime
                             video.play()
                             playing = true
-                        }, 0)
+                        }, 500)
                     }
                 }
             }
@@ -1112,5 +1109,6 @@
         })
     }
 </script>
+
 
 </html>

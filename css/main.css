@@ -260,4 +260,7 @@ width: 70vw;
         display: none;
     }
 
+    #ch1_history,#ch2_old,#ch3_now,#ch4_future{
+margin-top: 25vh;
+    }
 }
